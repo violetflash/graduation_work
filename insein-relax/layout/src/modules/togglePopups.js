@@ -18,7 +18,12 @@ const togglePopups = () => {
       repairPopup.style.transform = 'translateY(10px)';
       repairPopup.style.opacity = 0;
       document.body.style.overflow = 'visible';
+      return;
     }
+
+
+
+
   });
 
 };
