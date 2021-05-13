@@ -4795,7 +4795,7 @@ div.wave-block:nth-child(17):after {
 
 .popup-dialog-menu {
   position: absolute;
-  visibility: visible;
+  visibility: hidden;
   top: 0;
   right: 0;
   -webkit-transform: translate3d(645px, 0, 0);
@@ -8962,4 +8962,9 @@ strong {
 
 .slider-dots {
   display: none;
+}
+
+/*==== js styles ====*/
+.js-locked {
+  overflow: hidden;
 }

@@ -4,31 +4,43 @@ const toggleMenu = () => {
     menu = menuWrapper.querySelector('.popup-dialog-menu');
 
 
+  //Блокировка прокрутки при открытом меню
+  //TODO избавиться от скачка при появлении скроллбара
+
+
   const openMenu = () => {
     menuWrapper.style.visibility = 'visible';
-    // const styles = window.getComputedStyle(menu).transform;
     menu.style.transform = 'translate3d(0, 0, 0)';
+    menu.style.visibility = 'visible';
+    document.body.classList.add('js-locked');
   };
 
   const closeMenu = () => {
     menuWrapper.style.visibility = 'hidden';
+    menu.style.transform = 'translate3d(645px, 0, 0)';
+    menu.style.visibility = 'hidden';
+    document.body.classList.remove('js-locked');
   };
 
   document.addEventListener('click', (e) => {
     let target = e.target;
     if (target.closest('.menu')) {
       openMenu();
-    } else {
-      //исключаем само меню и li внутри него
-      if (target.closest('.menu') && target.hasAttribute('href') && target !== menu) {
-        closeMenu();
-      }
-      target = target.closest('.menu');
-      //если клик не по меню
-      if (!target) {
-        menuWrapper.style.visibility = 'hidden';
-      }
+      return;
     }
+
+    //исключаем само меню и <a> внутри него
+    if (target.closest('.close-menu') || target.closest('.popup-menu-main a')) {
+      closeMenu();
+      return;
+    }
+
+    target = target.closest('.popup-dialog-menu');
+    // если клик не по меню
+    if (!target) {
+      closeMenu();
+    }
+
   });
 };
 
