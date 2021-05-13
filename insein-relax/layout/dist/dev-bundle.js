@@ -148,7 +148,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar toggleMenu = function toggleMenu() {\n  var menu = document.querySelector('.popup-menu');\n\n  var menuHandler = function menuHandler() {\n    menu.classList.toggle('active-menu');\n  };\n\n  document.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.closest('.menu')) {\n      menuHandler();\n    } else {\n      //исключаем само меню и li внутри него\n      if (target.closest('menu') && target.hasAttribute('href') && target !== menu) {\n        menuHandler();\n      }\n\n      target = target.closest('menu'); //если клик не по меню\n\n      if (!target) {\n        menu.classList.remove('active-menu');\n      }\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleMenu);\n\n//# sourceURL=webpack://3dglo/./src/modules/toggleMenu.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar toggleMenu = function toggleMenu() {\n  var menuWrapper = document.querySelector('.popup-menu'),\n      menu = menuWrapper.querySelector('.popup-dialog-menu');\n\n  var openMenu = function openMenu() {\n    menuWrapper.style.visibility = 'visible'; // const styles = window.getComputedStyle(menu).transform;\n\n    menu.style.transform = 'translate3d(0, 0, 0)';\n  };\n\n  var closeMenu = function closeMenu() {\n    menuWrapper.style.visibility = 'hidden';\n  };\n\n  document.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.closest('.menu')) {\n      openMenu();\n    } else {\n      //исключаем само меню и li внутри него\n      if (target.closest('.menu') && target.hasAttribute('href') && target !== menu) {\n        closeMenu();\n      }\n\n      target = target.closest('.menu'); //если клик не по меню\n\n      if (!target) {\n        menuWrapper.style.visibility = 'hidden';\n      }\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleMenu);\n\n//# sourceURL=webpack://3dglo/./src/modules/toggleMenu.js?");
 
 /***/ }),
 
@@ -583,7 +583,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("0ff6d4f1712bc3cc92d6")
+/******/ 		__webpack_require__.h = () => ("7f50dbf5ae69a548f328")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
