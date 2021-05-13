@@ -1,6 +1,5 @@
 'use strict';
 
-import addAnimateCSS from './modules/addAnimateCSS';
 import toggleMenu from './modules/toggleMenu';
 import togglePhone from './modules/togglePhone';
 import addSmoothScroll from './modules/addSmoothScroll';
@@ -14,7 +13,7 @@ import documents from './modules/documents';
 import testimonials from './modules/testimonials';
 import faq from './modules/faq';
 
-addAnimateCSS();
+
 togglePhone();
 toggleMenu();
 addSmoothScroll();
