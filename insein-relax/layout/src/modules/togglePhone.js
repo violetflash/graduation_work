@@ -1,11 +1,9 @@
-
 const togglePhone = () => {
-  const main = document.getElementById('main'),
-    mainPhone = document.querySelector('.header-contacts__phone-number-wrap'),
+  const mainPhone = document.querySelector('.header-contacts__phone-number-wrap'),
     hiddenPhone = document.querySelector('.header-contacts__phone-number-accord a');
 
 
-  main.addEventListener('click', (e) => {
+  document.addEventListener('click', (e) => {
     let target = e.target;
 
     //Phone show/hide

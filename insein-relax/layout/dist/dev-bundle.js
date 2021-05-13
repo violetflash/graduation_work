@@ -148,7 +148,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar toggleMenu = function toggleMenu() {};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleMenu);\n\n//# sourceURL=webpack://3dglo/./src/modules/toggleMenu.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar toggleMenu = function toggleMenu() {\n  var menu = document.querySelector('.popup-menu');\n\n  var menuHandler = function menuHandler() {\n    menu.classList.toggle('active-menu');\n  };\n\n  document.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.closest('.menu')) {\n      menuHandler();\n    } else {\n      //исключаем само меню и li внутри него\n      if (target.closest('menu') && target.hasAttribute('href') && target !== menu) {\n        menuHandler();\n      }\n\n      target = target.closest('menu'); //если клик не по меню\n\n      if (!target) {\n        menu.classList.remove('active-menu');\n      }\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleMenu);\n\n//# sourceURL=webpack://3dglo/./src/modules/toggleMenu.js?");
 
 /***/ }),
 
@@ -159,7 +159,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar togglePhone = function togglePhone() {\n  var main = document.getElementById('main'),\n      mainPhone = document.querySelector('.header-contacts__phone-number-wrap'),\n      hiddenPhone = document.querySelector('.header-contacts__phone-number-accord a');\n  main.addEventListener('click', function (e) {\n    var target = e.target; //Phone show/hide\n\n    if (target.closest('.header-contacts__arrow')) {\n      target = document.querySelector('.header-contacts__arrow');\n      var moveAmount = mainPhone.scrollHeight;\n      var panel = target.previousElementSibling.querySelector('.header-contacts__phone-number-accord');\n\n      if (target.classList.contains('js-opened')) {\n        target.style.transform = 'scale(1.2)';\n        panel.style.transform = \"translateY(0)\";\n        hiddenPhone.style.opacity = 0;\n        target.classList.remove('js-opened');\n        return;\n      }\n\n      target.classList.add('js-opened');\n      target.style.transform = 'scale(-1.2)';\n      panel.style.transform = \"translateY(\".concat(moveAmount, \"px)\");\n      hiddenPhone.style.opacity = 1;\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (togglePhone);\n\n//# sourceURL=webpack://3dglo/./src/modules/togglePhone.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar togglePhone = function togglePhone() {\n  var mainPhone = document.querySelector('.header-contacts__phone-number-wrap'),\n      hiddenPhone = document.querySelector('.header-contacts__phone-number-accord a');\n  document.addEventListener('click', function (e) {\n    var target = e.target; //Phone show/hide\n\n    if (target.closest('.header-contacts__arrow')) {\n      target = document.querySelector('.header-contacts__arrow');\n      var moveAmount = mainPhone.scrollHeight;\n      var panel = target.previousElementSibling.querySelector('.header-contacts__phone-number-accord');\n\n      if (target.classList.contains('js-opened')) {\n        target.style.transform = 'scale(1.2)';\n        panel.style.transform = \"translateY(0)\";\n        hiddenPhone.style.opacity = 0;\n        target.classList.remove('js-opened');\n        return;\n      }\n\n      target.classList.add('js-opened');\n      target.style.transform = 'scale(-1.2)';\n      panel.style.transform = \"translateY(\".concat(moveAmount, \"px)\");\n      hiddenPhone.style.opacity = 1;\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (togglePhone);\n\n//# sourceURL=webpack://3dglo/./src/modules/togglePhone.js?");
 
 /***/ }),
 
@@ -583,7 +583,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("c17590ca8910aa4dc6ca")
+/******/ 		__webpack_require__.h = () => ("0ff6d4f1712bc3cc92d6")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
