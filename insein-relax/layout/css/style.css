@@ -4963,10 +4963,13 @@ div.wave-block:nth-child(17):after {
 }
 
 .popup-dialog-privacy {
+  display: none;
   position: relative;
   background: url(../images/popup/privacy_bg.svg);
   border-radius: 20px;
   overflow: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease-in-out;
 }
 
 @media (max-width: 575px) {

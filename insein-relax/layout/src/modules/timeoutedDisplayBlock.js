@@ -1,9 +1,10 @@
 const timeoutedDisplayBlock = () => {
   const menu = document.querySelector('.popup-dialog-menu'),
+    privacyPopup = document.querySelector('.popup-dialog-privacy'),
     repairPopup = document.querySelector('.popup-repair-types');
 
 
-  const block = [menu];
+  const block = [menu, privacyPopup];
   const flex = [repairPopup];
 
   let timeoutID;
