@@ -8,12 +8,18 @@ const toggleMenu = () => {
   //TODO избавиться от скачка при появлении скроллбара
 
   let translate3d = 'translate3d(645px, 0, 0)';
+  let timeoutID;
+
+  timeoutID = setTimeout(() => {
+    menu.style.display = 'block';
+    clearTimeout(timeoutID);
+    timeoutID = null;
+  }, 1000);
 
   if (document.documentElement.clientWidth < 576) {
     menu.style.transform = 'translate3d(0, -100%, 0)';
     translate3d = 'translate3d(0, -100%, 0)';
   }
-
 
   const openMenu = () => {
     menuWrapper.style.visibility = 'visible';

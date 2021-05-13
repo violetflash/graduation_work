@@ -4794,8 +4794,9 @@ div.wave-block:nth-child(17):after {
 }
 
 .popup-dialog-menu {
+  display: none;
   position: absolute;
-  visibility: hidden;
+  visibility: visible;
   top: 0;
   right: 0;
   -webkit-transform: translate3d(645px, 0, 0);
