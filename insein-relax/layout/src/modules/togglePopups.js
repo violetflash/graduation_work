@@ -18,8 +18,6 @@ const togglePopups = () => {
     document.body.style.overflow = 'visible';
   };
 
-
-
   document.addEventListener('click', (e) => {
     const target = e.target;
 

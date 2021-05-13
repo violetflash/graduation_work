@@ -1334,6 +1334,16 @@ template, [hidden] {
   opacity: 0.1;
 }
 
+.formula-item.js-inversed .formula-item-popup::before  {
+  transform: scaleY(-1);
+}
+
+.formula-item.js-inversed .formula-item-popup {
+  padding: 40px 40px 0;
+  bottom: 0;
+  top: 90px;
+}
+
 .formula-item-popup p {
   padding-bottom: 15px;
 }
@@ -8045,7 +8055,7 @@ div.wave-block:nth-child(17):after {
   }
 }
 
-.active-item .formula-item__icon-inner__descr {
+.active-item .formula-item__icon-inner__text {
   font-size: 20px;
 }
 
