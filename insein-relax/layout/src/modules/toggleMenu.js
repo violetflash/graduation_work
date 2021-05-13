@@ -4,8 +4,15 @@ const toggleMenu = () => {
     menu = menuWrapper.querySelector('.popup-dialog-menu');
 
 
-  //Блокировка прокрутки при открытом меню
+
   //TODO избавиться от скачка при появлении скроллбара
+
+  let translate3d = 'translate3d(645px, 0, 0)';
+
+  if (document.documentElement.clientWidth < 576) {
+    menu.style.transform = 'translate3d(0, -100%, 0)';
+    translate3d = 'translate3d(0, -100%, 0)';
+  }
 
 
   const openMenu = () => {
@@ -17,7 +24,7 @@ const toggleMenu = () => {
 
   const closeMenu = () => {
     menuWrapper.style.visibility = 'hidden';
-    menu.style.transform = 'translate3d(645px, 0, 0)';
+    menu.style.transform = translate3d;
     menu.style.visibility = 'hidden';
     document.body.classList.remove('js-locked');
   };
