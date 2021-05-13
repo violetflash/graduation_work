@@ -170,7 +170,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n//их несколько\nvar togglePopups = function togglePopups() {\n  var repairPopup = document.querySelector('.popup-repair-types');\n  document.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.closest('.link-list-menu')) {\n      repairPopup.style.visibility = 'visible';\n      repairPopup.style.transform = 'translateY(0)';\n      repairPopup.style.opacity = 1;\n      document.body.style.overflow = 'hidden';\n    } // if ()\n\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (togglePopups);\n\n//# sourceURL=webpack://3dglo/./src/modules/togglePopups.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n//их несколько\nvar togglePopups = function togglePopups() {\n  var repairPopup = document.querySelector('.popup-repair-types');\n  document.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.closest('.link-list-menu') || target.closest('.link-list-repair')) {\n      repairPopup.style.visibility = 'visible';\n      repairPopup.style.transform = 'translateY(0)';\n      repairPopup.style.opacity = 1;\n      document.body.style.overflow = 'hidden';\n      return;\n    }\n\n    if (target.classList.contains('close') && target.closest('.popup-repair-types')) {\n      repairPopup.style.visibility = 'hidden';\n      repairPopup.style.transform = 'translateY(10px)';\n      repairPopup.style.opacity = 0;\n      document.body.style.overflow = 'visible';\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (togglePopups);\n\n//# sourceURL=webpack://3dglo/./src/modules/togglePopups.js?");
 
 /***/ }),
 
@@ -583,7 +583,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("a9bdfbe4e3ed87e6dd53")
+/******/ 		__webpack_require__.h = () => ("caba501822934cf8fa0d")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
