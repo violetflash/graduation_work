@@ -1340,8 +1340,6 @@ template, [hidden] {
 
 .formula-item.js-inversed .formula-item-popup {
   padding: 40px 40px 0;
-  bottom: 0;
-  top: 90px;
 }
 
 .formula-item-popup p {
