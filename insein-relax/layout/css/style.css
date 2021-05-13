@@ -7157,6 +7157,14 @@ div.wave-block:nth-child(17):after {
   overflow: hidden;
 }
 
+.popup-repair-types {
+  display: none;
+  transform: translateX(-10%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
 .nav-popup-repair-types {
   position: relative;
   margin-top: 0 !important;

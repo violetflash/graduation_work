@@ -1,5 +1,6 @@
 'use strict';
 
+import timeoutedDisplayBlock from './modules/timeoutedDisplayBlock';
 import toggleMenu from './modules/toggleMenu';
 import togglePhone from './modules/togglePhone';
 import addSmoothScroll from './modules/addSmoothScroll';
@@ -14,6 +15,7 @@ import testimonials from './modules/testimonials';
 import faq from './modules/faq';
 
 
+timeoutedDisplayBlock();
 togglePhone();
 toggleMenu();
 addSmoothScroll();
