@@ -8,14 +8,14 @@ const togglePopups = () => {
     popup.style.visibility = 'visible';
     popup.style.transform = 'translateY(0)';
     popup.style.opacity = 1;
-    document.body.style.overflow = 'hidden';
+    // document.body.style.overflow = 'hidden';
   };
 
   const hidePopup = (popup) => {
     popup.style.visibility = 'hidden';
     popup.style.transform = 'translateY(10px)';
     popup.style.opacity = 0;
-    document.body.style.overflow = 'visible';
+    // document.body.style.overflow = 'visible';
   };
 
   document.addEventListener('click', (e) => {
