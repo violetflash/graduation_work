@@ -1,3 +1,4 @@
+import Carousel from './carousel';
 
 const repairsTypes = () => {
 
@@ -85,6 +86,36 @@ const repairsTypes = () => {
     updateSliderCounter(currentSlide + 1, slides.length);
     showElement(slides, currentSlide, 'slider-item-active');
   });
+
+
+  // console.log(document.querySelector('.nav-list-repair').children);
+  // if (document.documentElement.clientWidth < 1024) {
+  //   const tabs = new Carousel({
+  //     main: '.repair-types-nav',
+  //     wrapper: '.nav-list-repair',
+  //     next: '#nav-arrow-repair-right_base',
+  //     prev: '#nav-arrow-repair-left_base',
+  //     responsive: [
+  //       {
+  //         breakpoint: 1024,
+  //         slidesToShow: 3
+  //       },
+  //       {
+  //         breakpoint: 768,
+  //         slidesToShow: 2
+  //       },
+  //       {
+  //         breakpoint: 576,
+  //         slidesToShow: 1
+  //       }
+  //     ],
+  //   });
+  //
+  //   tabs.init();
+  // }
+
+
+
 };
 
 export default repairsTypes;

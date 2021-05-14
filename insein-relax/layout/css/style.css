@@ -1663,6 +1663,13 @@ template, [hidden] {
   }
 }
 
+@media (max-width: 1024px) {
+  .nav.repair-types-nav {
+    overflow: scroll;
+  }
+}
+
+
 .repair-types-nav__item {
   height: 46px;
   line-height: 46px;
@@ -7225,6 +7232,8 @@ div.wave-block:nth-child(17):after {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     max-width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
   }
 }
 
