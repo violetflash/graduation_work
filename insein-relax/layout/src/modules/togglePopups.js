@@ -28,7 +28,6 @@ const togglePopups = () => {
     }
 
     if (target.classList.contains('close') && target.closest('.popup-repair-types')) {
-      console.log('hit!')
       hidePopup(repairPopup);
       return;
     }
