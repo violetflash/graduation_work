@@ -13,7 +13,8 @@ const portfolioSlider = () => {
 
   let movedDistance = imagesBlockWidth,
     step = slideWidth,
-    counter = 1;
+    counter = 1,
+    amount = 0;
 
 
 
@@ -22,11 +23,13 @@ const portfolioSlider = () => {
     if (target.closest('#portfolio-arrow_right')) {
 
       if (movedDistance <= fullwidth) {
-        imagesBlock.style.transform = `translateX(-${step * counter}px)`;
+        amount = step * counter;
+
+        imagesBlock.style.transform = `translateX(-${amount}px)`;
         counter++;
         movedDistance = imagesBlockWidth + step * counter;
         if (movedDistance >= fullwidth) {
-          console.log(movedDistance);
+          movedDistance = fullwidth;
           rightArrow.style.display = 'none';
           leftArrow.style.display = 'flex';
           counter = 1;
@@ -36,17 +39,13 @@ const portfolioSlider = () => {
 
     if (target.closest('#portfolio-arrow_left')) {
 
-      if (movedDistance > imagesBlockWidth) {
-        console.log(movedDistance);
-        imagesBlock.style.transform = `translateX(${step * counter}px)`;
-        counter++;
-        movedDistance -= step * counter;
-        console.log(movedDistance);
-
-        // if (movedDistance >= fullwidth) {
-        //   rightArrow.style.display = 'none';
-        //   leftArrow.style.display = 'flex';
-        // }
+      if (amount > 0) {
+        imagesBlock.style.transform = `translateX(-${amount - step}px)`;
+        amount -= step;
+        if (amount === 0) {
+          rightArrow.style.display = 'flex';
+          leftArrow.style.display = 'none';
+        }
       }
     }
 

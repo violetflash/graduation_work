@@ -90,7 +90,7 @@ const repairsTypes = () => {
   });
 
 
-  if (document.documentElement.clientWidth < 1024) {
+  if (document.documentElement.clientWidth <= 1024) {
 
     const tabsCarousel = new Carousel({
       main: '.repair-types-nav',
