@@ -5,7 +5,7 @@ const repairsTypes = () => {
   const tabHeader = document.querySelector('.nav-list-repair'),
     tabs = document.querySelectorAll('.repair-types-nav__item'),
     tabContent = document.querySelectorAll('.repair-types-content'),
-    slider = document.querySelector('.repair-types-slider-wrap'),
+    slider = document.querySelector('.repair-types'),
     sliderCounterCurrent = document.querySelector('.slider-counter-repair .slider-counter-content__current'),
     sliderCounterTotal = document.querySelector('.slider-counter-repair .slider-counter-content__total');
 
@@ -44,7 +44,9 @@ const repairsTypes = () => {
 
   tabHeader.addEventListener('click', e => {
     let target = e.target;
+
     target = target.closest('.repair-types-nav__item');
+
     if (target) {
       tabs.forEach((item, index) => {
         if (target === item) {
@@ -72,14 +74,14 @@ const repairsTypes = () => {
     hideElement(slides, currentSlide, 'slider-item-active');
 
     if (target.closest('#repair-types-arrow_right')) {
-      currentSlide++;
-      if (currentSlide === slides.length) {
-        currentSlide = 0;
+
+      if (currentSlide !== slides.length - 1) {
+        currentSlide++;
       }
     } else if (target.closest('#repair-types-arrow_left')) {
-      currentSlide--;
-      if (currentSlide < 0) {
-        currentSlide = slides.length - 1;
+
+      if (currentSlide !== 0) {
+        currentSlide--;
       }
     }
 
@@ -88,34 +90,106 @@ const repairsTypes = () => {
   });
 
 
-  // console.log(document.querySelector('.nav-list-repair').children);
-  // if (document.documentElement.clientWidth < 1024) {
-  //   const tabs = new Carousel({
-  //     main: '.repair-types-nav',
-  //     wrapper: '.nav-list-repair',
-  //     next: '#nav-arrow-repair-right_base',
-  //     prev: '#nav-arrow-repair-left_base',
-  //     responsive: [
-  //       {
-  //         breakpoint: 1024,
-  //         slidesToShow: 3
-  //       },
-  //       {
-  //         breakpoint: 768,
-  //         slidesToShow: 2
-  //       },
-  //       {
-  //         breakpoint: 576,
-  //         slidesToShow: 1
-  //       }
-  //     ],
-  //   });
-  //
-  //   tabs.init();
-  // }
+  if (document.documentElement.clientWidth < 1024) {
+
+    const tabsCarousel = new Carousel({
+      main: '.repair-types-nav',
+      wrapper: '.nav-list-repair',
+      next: '#nav-arrow-repair-right_base',
+      prev: '#nav-arrow-repair-left_base',
+      responsive: [
+        {
+          breakpoint: 1024,
+          slidesToShow: 3
+        },
+        {
+          breakpoint: 768,
+          slidesToShow: 2
+        },
+        {
+          breakpoint: 576,
+          slidesToShow: 1
+        }
+      ],
+    });
+
+    tabsCarousel.init();
+
+    const lockElement = (elem) => {
+      elem.setAttribute('disabled', 'true');
+    };
+
+    const unlockElement = (elem) => {
+      elem.removeAttribute('disabled');
+    };
+
+    const tabHeader = document.querySelector('.repair-types-tab'),
+      tabs = document.querySelectorAll('.repair-types-nav__item'),
+      leftArrow = document.getElementById('nav-arrow-repair-left_base'),
+      rightArrow = document.getElementById('nav-arrow-repair-right_base');
+
+    const getActiveIndex = (array) => {
+      let idx;
+      array.forEach((element, index) => {
+        if (element.classList.contains('active')) {
+          idx = index;
+        }
+      });
+      return idx;
+    };
 
 
+    const checkArrows = () => {
+      if (getActiveIndex(tabs) === tabs.length - 1) {
+        lockElement(rightArrow);
+      } else {
+        unlockElement(rightArrow);
+      }
 
+      if (getActiveIndex(tabs) === 0) {
+        lockElement(leftArrow);
+      } else {
+        unlockElement(leftArrow);
+      }
+    };
+
+    // checkArrows();
+
+    tabHeader.addEventListener('click', (e) => {
+      let target = e.target;
+
+      if (!target.closest('.nav-arrow')) {
+        return;
+      }
+
+      if (target.closest('#nav-arrow-repair-right_base')) {
+        const index = getActiveIndex(tabs);
+        if (index !== tabs.length - 1) {
+          tabs[index].classList.remove('active');
+          tabs[index + 1].classList.add('active');
+          tabContent[index].classList.add('d-none');
+          tabContent[index + 1].classList.remove('d-none');
+          selectedSliderIndex = index + 1;
+          currentSlide = 0;
+          updateSliderCounter(1, tabContent[index + 1].children.length);
+        }
+      }
+
+      if (target.closest('#nav-arrow-repair-left_base')) {
+        const index = getActiveIndex(tabs);
+        if (index - 1 !== -1) {
+          tabs[index].classList.remove('active');
+          tabs[index - 1].classList.add('active');
+          tabContent[index].classList.add('d-none');
+          tabContent[index - 1].classList.remove('d-none');
+          selectedSliderIndex = index - 1;
+          currentSlide = 0;
+          updateSliderCounter(1, tabContent[index - 1].children.length);
+        }
+      }
+
+    });
+  }
 };
 
 export default repairsTypes;

@@ -52,6 +52,20 @@ const tooltipHandler = () => {
     next: '#formula-arrow_right',
     prev: '#formula-arrow_left',
     slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        slidesToShow: 3
+      },
+      {
+        breakpoint: 768,
+        slidesToShow: 1
+      },
+      {
+        breakpoint: 576,
+        slidesToShow: 1
+      }
+    ],
   });
 
   formulaSlider.init();

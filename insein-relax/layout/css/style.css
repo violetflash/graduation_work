@@ -14,6 +14,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 main {
@@ -1663,11 +1664,11 @@ template, [hidden] {
   }
 }
 
-@media (max-width: 1024px) {
-  .nav.repair-types-nav {
-    overflow: scroll;
-  }
-}
+/*@media (max-width: 1024px) {*/
+/*  .nav.repair-types-nav {*/
+/*    overflow: scroll;*/
+/*  }*/
+/*}*/
 
 
 .repair-types-nav__item {
@@ -1724,6 +1725,7 @@ template, [hidden] {
   .repair-types-nav__item:first-child {
     width: 186px;
     margin-top: 0;
+    left: -60px;
   }
 
   .repair-types-nav__item:first-child svg {
@@ -1741,13 +1743,14 @@ template, [hidden] {
   }
 
   .repair-types-nav__item:nth-child(2) svg {
-    width: 240px;
+    width: 230px;
   }
 }
 
 @media (max-width: 575px) {
   .repair-types-nav__item:nth-child(2) {
     width: 215px;
+    left: -60px;
   }
 
   .repair-types-nav__item:nth-child(2) svg {
@@ -1761,17 +1764,18 @@ template, [hidden] {
 
 @media (max-width: 1024px) {
   .repair-types-nav__item:nth-child(3) {
-    width: 220px;
+    width: 215px;
   }
 
   .repair-types-nav__item:nth-child(3) svg {
-    width: 220px;
+    width: 215px;
   }
 }
 
 @media (max-width: 575px) {
   .repair-types-nav__item:nth-child(3) {
     width: 200px;
+    left: -60px;
   }
 
   .repair-types-nav__item:nth-child(3) svg {
@@ -1796,6 +1800,7 @@ template, [hidden] {
 @media (max-width: 575px) {
   .repair-types-nav__item:nth-child(4) {
     width: 190px;
+    left: -60px;
   }
 
   .repair-types-nav__item:nth-child(4) svg {
@@ -1809,11 +1814,13 @@ template, [hidden] {
 
 @media (max-width: 1024px) {
   .repair-types-nav__item:nth-child(5) {
-    width: 266px;
+    width: 250px;
   }
 
   .repair-types-nav__item:nth-child(5) svg {
-    width: 266px;
+    width: 230px;
+    margin-left: 30px;
+    left: -30px;
   }
 }
 
@@ -1822,8 +1829,14 @@ template, [hidden] {
     width: 223px;
   }
 
+  .repair-types-nav__item:nth-child(5) span {
+    position: absolute;
+    left: 45px;
+  }
+
   .repair-types-nav__item:nth-child(5) svg {
     width: 223px;
+    left: -15px;
   }
 }
 
@@ -7249,21 +7262,21 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 1024px) {
   .nav-list-repair {
-    min-width: 1200px;
+    /*min-width: 1200px;*/
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    /*-ms-flex-wrap: wrap;*/
+    /*flex-wrap: wrap;*/
     max-width: 100%;
-    overflow-x: scroll;
-    white-space: nowrap;
+    /*overflow-x: scroll;*/
+    /*white-space: nowrap;*/
   }
 }
 
 @media (max-width: 575px) {
   .nav-list-repair {
-    min-width: 1086px;
+    /*min-width: 1086px;*/
   }
 }
 
@@ -7698,6 +7711,16 @@ div.wave-block:nth-child(17):after {
   left: 0;
   z-index: -1;
 }
+
+@media (max-width: 1024px) {
+  .button_o svg {
+    position: absolute;
+    top: 0;
+    left: unset;
+    z-index: -1;
+  }
+}
+
 
 .button_o svg path {
   position: absolute;
