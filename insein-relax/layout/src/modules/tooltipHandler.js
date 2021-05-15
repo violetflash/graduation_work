@@ -47,7 +47,7 @@ const tooltipHandler = () => {
 
   }
 
-  if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1024) {
+  if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth <= 1024) {
     const sliderWrapper = document.querySelector('.formula-slider');
     const divElement1 = document.createElement('div');
     divElement1.className = 'formula-item empty';
@@ -70,14 +70,14 @@ const tooltipHandler = () => {
     wrapper: '.formula-slider',
     next: '#formula-arrow_right',
     prev: '#formula-arrow_left',
-    slidesToShow: 1,
+    slidesToShow: 3,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1023,
         slidesToShow: 3
       },
       {
-        breakpoint: 768,
+        breakpoint: 769,
         slidesToShow: 1
       },
       {
