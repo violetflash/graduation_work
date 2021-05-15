@@ -6,6 +6,7 @@ class Carousel {
       wrapper,
       next,
       prev,
+      axis = 'x',
       infinite = false,
       slidesToShow = 2,
       position = 0,
@@ -24,6 +25,7 @@ class Carousel {
     this.prev = document.querySelector(prev);
     this.slidesToShow = slidesToShow;
     this.infinite = infinite;
+    this.axis = axis;
     this.options = {
       position,
       maxPosition: this.slides.length - this.slidesToShow,
@@ -97,7 +99,7 @@ class Carousel {
       if (this.options.position > this.slides.length - this.slidesToShow) {
         this.options.position = 0;
       }
-      this.wrapper.style.transform = `translateX(-${this.options.position * this.options.slideWidth}%)`;
+      this.wrapper.style.transform = `translate${this.axis.toUpperCase()}(-${this.options.position * this.options.slideWidth}%)`;
     }
   }
 
@@ -107,7 +109,7 @@ class Carousel {
       if (this.options.position < 0) {
         this.options.position = this.slides.length - this.slidesToShow;
       }
-      this.wrapper.style.transform = `translateX(-${this.options.position * this.options.slideWidth}%)`;
+      this.wrapper.style.transform = `translate${this.axis.toUpperCase()}(-${this.options.position * this.options.slideWidth}%)`;
     }
   }
 
@@ -123,6 +125,7 @@ class Carousel {
 
     const checkScreenWidth = () => {
       const windowWidth = document.documentElement.clientWidth;
+      const windowHeight = document.documentElement.clientHeight;
       if (windowWidth < maxBreakpoint) {
         for (let i = 0; i < breakpoints.length; i++) {
           if (windowWidth < breakpoints[i]) {

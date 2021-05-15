@@ -97,13 +97,14 @@ const repairsTypes = () => {
       wrapper: '.nav-list-repair',
       next: '#nav-arrow-repair-right_base',
       prev: '#nav-arrow-repair-left_base',
+      axis: 'x',
       responsive: [
         {
           breakpoint: 1024,
           slidesToShow: 3
         },
         {
-          breakpoint: 768,
+          breakpoint: 769,
           slidesToShow: 2
         },
         {
