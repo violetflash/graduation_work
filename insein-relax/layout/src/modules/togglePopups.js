@@ -2,7 +2,8 @@
 const togglePopups = () => {
   const repairPopup = document.querySelector('.popup-repair-types'),
     privacyPopup = document.querySelector('.popup-privacy'),
-    privacyBlock = document.querySelector('.popup-dialog-privacy');
+    privacyBlock = document.querySelector('.popup-dialog-privacy'),
+    portfolioPopup = document.querySelector('.popup-portfolio');
 
   const showPopup = (popup) => {
     popup.style.visibility = 'visible';
@@ -44,7 +45,10 @@ const togglePopups = () => {
       return;
     }
 
-
+    if (target.classList.contains('close') && target.closest('.popup-portfolio')) {
+      hidePopup(portfolioPopup);
+      return;
+    }
 
   });
 

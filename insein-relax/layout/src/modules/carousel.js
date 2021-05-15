@@ -149,6 +149,11 @@ class Carousel {
     window.addEventListener('resize', checkScreenWidth);
   }
 
+  setPosition() {
+    this.wrapper.style.transform = `translate${this.axis.toUpperCase()}(-${this.options.position * this.options.slideWidth}%)`;
+
+  }
+
   init() {
     this.addSliderClasses();
     this.addStyle();
@@ -164,6 +169,8 @@ class Carousel {
     if (this.responsive) {
       this.initResponsive();
     }
+
+    this.setPosition();
   }
 }
 
