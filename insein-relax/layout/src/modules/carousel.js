@@ -1,6 +1,7 @@
 class Carousel {
   constructor(
     {
+      className,
       main,
       wrapper,
       next,
@@ -15,6 +16,7 @@ class Carousel {
       console.warn('carousel: Необходимо 2 селектора, "main" и "wrapper"');
     }
 
+    this.className = className;
     this.main = document.querySelector(main);
     this.wrapper = document.querySelector(wrapper);
     this.slides = document.querySelector(wrapper).children;
@@ -31,30 +33,30 @@ class Carousel {
   }
 
   addSliderClasses() {
-    this.main.classList.add('max-slider');
-    this.wrapper.classList.add('max-slider__wrapper');
+    this.main.classList.add(`${this.className}-max-slider`);
+    this.wrapper.classList.add(`${this.className}-max-slider__wrapper`);
     for (const elem of this.slides) {
-      elem.classList.add('max-slider__item');
+      elem.classList.add(`${this.className}-max-slider__item`);
     }
   }
 
   addStyle() {
-    let style = document.getElementById('max-slider__styles');
+    let style = document.getElementById(`${this.className}-max-slider__styles`);
     if (!style) {
       style = document.createElement('style');
-      style.id = 'max-slider__styles';
+      style.id = `${this.className}-max-slider__styles`;
     }
 
     style.textContent = `
-            .max-slider {
+            .${this.className}-max-slider {
                 overflow: hidden !important;
             }
-            .max-slider__wrapper {
+            .${this.className}-max-slider__wrapper {
                 display: flex !important;
                 transition: transform 0.5s !important;
                 will-change: transform !important;
             }
-            .max-slider__item {
+            .${this.className}-max-slider__item {
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
@@ -67,22 +69,22 @@ class Carousel {
 
   addSliderArrows() {
     this.main.insertAdjacentHTML('beforeend', `
-            <button id="max-slider__prev-arrow"></button>
-            <button id="max-slider__next-arrow"></button>
+            <button id="${this.className}-max-slider__prev-arrow"></button>
+            <button id="${this.className}-max-slider__next-arrow"></button>
         `);
     const style = document.createElement('style');
     style.textContent = `
-            #max-slider__prev-arrow,
-            #max-slider__next-arrow {
+            #${this.className}-max-slider__prev-arrow,
+            #${this.className}-max-slider__next-arrow {
                 margin: 0 10px;
                 border: 20px solid transparent;
                 background: transparent;
                 outline: transparent;
             }
-            #max-slider__next-arrow {
+            #${this.className}-max-slider__next-arrow {
                 border-left-color: #19b5fe;
             }
-            #max-slider__prev-arrow {
+            #${this.className}-max-slider__prev-arrow {
                 border-right-color: #19b5fe;
             }
         `;
@@ -150,8 +152,8 @@ class Carousel {
 
     if (!this.prev && !this.next) {
       this.addSliderArrows();
-      this.next = document.getElementById('max-slider__next-arrow');
-      this.prev = document.getElementById('max-slider__prev-arrow');
+      this.next = document.getElementById(`${this.className}-max-slider__next-arrow`);
+      this.prev = document.getElementById(`${this.className}-max-slider__prev-arrow`);
     }
 
     this.controlSlider();
