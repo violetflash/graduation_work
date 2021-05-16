@@ -1,12 +1,13 @@
 class Carousel {
   constructor(
     {
-      className,
       main,
       wrapper,
       next,
       prev,
+      className,
       axis = 'x',
+      dotsClass = false,
       infinite = false,
       slidesToShow = 2,
       position = 0,
@@ -26,6 +27,10 @@ class Carousel {
     this.slidesToShow = slidesToShow;
     this.infinite = infinite;
     this.axis = axis;
+    if (dotsClass) {
+      this.dots = document.querySelectorAll(dotsClass);
+    }
+
     this.options = {
       position,
       maxPosition: this.slides.length - this.slidesToShow,
@@ -39,6 +44,9 @@ class Carousel {
     this.wrapper.classList.add(`${this.className}-max-slider__wrapper`);
     for (const elem of this.slides) {
       elem.classList.add(`${this.className}-max-slider__item`);
+    }
+    if (this.dots) {
+      this.setDots();
     }
   }
 
@@ -113,9 +121,23 @@ class Carousel {
     }
   }
 
+  dotControl(e) {
+    let target = e.target;
+    const className = `${this.className}-max-slider-dot`;
+    if (target.classList.contains(className)) {
+      this.options.position = +target.getAttribute('dot');
+      console.log(this.options.position);
+      this.setPosition();
+    }
+  }
+
   controlSlider() {
     this.prev.addEventListener('click', this.prevSlider.bind(this));
     this.next.addEventListener('click', this.nextSlider.bind(this));
+    if (this.dots) {
+      document.addEventListener('click', this.dotControl.bind(this));
+    }
+
   }
 
   initResponsive() {
@@ -151,14 +173,20 @@ class Carousel {
 
   setPosition() {
     this.wrapper.style.transform = `translate${this.axis.toUpperCase()}(-${this.options.position * this.options.slideWidth}%)`;
+  }
 
+  setDots() {
+    this.dots.forEach((dot, index) => {
+      dot.classList.add(`${this.className}-max-slider-dot`);
+      dot.setAttribute('dot', `${index}`);
+    });
   }
 
   init() {
     this.addSliderClasses();
     this.addStyle();
 
-    if (!this.prev && !this.next) {
+    if (!this.prev && !this.next && !this.dots) {
       this.addSliderArrows();
       this.next = document.getElementById(`${this.className}-max-slider__next-arrow`);
       this.prev = document.getElementById(`${this.className}-max-slider__prev-arrow`);

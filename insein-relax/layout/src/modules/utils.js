@@ -53,7 +53,17 @@ const moveLeftCheckArrow = (activeSlide, leftArrow, rightArrow) => {
 };
 
 
+const removeElementsClass = (nodeList, className) => {
+  nodeList.forEach(element => element.classList.remove(className));
+};
 
-
-
-export { updateSliderCounter, setDataIndexes, getDatasetIndex, showPopup, hidePopup, moveLeftCheckArrow, moveRightCheckArrow };
+export {
+  updateSliderCounter,
+  setDataIndexes,
+  getDatasetIndex,
+  showPopup,
+  hidePopup,
+  moveLeftCheckArrow,
+  moveRightCheckArrow,
+  removeElementsClass,
+};
