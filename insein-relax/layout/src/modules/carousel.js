@@ -126,7 +126,6 @@ class Carousel {
     const className = `${this.className}-max-slider-dot`;
     if (target.classList.contains(className)) {
       this.options.position = +target.getAttribute('dot');
-      console.log(this.options.position);
       this.setPosition();
     }
   }
