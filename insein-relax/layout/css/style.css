@@ -8802,6 +8802,12 @@ strong {
   }
 }
 
+@media (max-width: 1024px) {
+  .popup-dialog-portfolio .row {
+    display: block;
+  }
+}
+
 
 
 .row_reverse {
