@@ -13,6 +13,7 @@ import repairsTypes from './modules/repairsTypes';
 import portfolioSlider from './modules/portfolioSlider';
 import documents from './modules/documents';
 import testimonials from './modules/testimonials';
+import accordion from './modules/accordion';
 import faq from './modules/faq';
 
 
@@ -29,5 +30,6 @@ repairsTypes();
 portfolioSlider();
 documents();
 testimonials();
+accordion();
 faq();
 

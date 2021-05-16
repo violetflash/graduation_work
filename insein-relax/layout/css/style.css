@@ -4554,8 +4554,8 @@ div.wave-block:nth-child(17):after {
   margin-top: 0;
   max-height: 0;
   opacity: 0;
-  -webkit-transform: translate(0, 50%);
-  transform: translate(0, 50%);
+  /*-webkit-transform: translate(0, 50%);*/
+  /*transform: translate(0, 50%);*/
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -4567,14 +4567,14 @@ div.wave-block:nth-child(17):after {
 }
 
 .msg-active svg {
-  -webkit-transform: scale(1, -1);
-  transform: scale(1, -1);
+  /*-webkit-transform: scale(1, -1);*/
+  /*transform: scale(1, -1);*/
 }
 
 @media (max-width: 575px) {
   .msg-active svg {
-    -webkit-transform: scale(1, -1);
-    transform: scale(1, -1);
+    /*-webkit-transform: scale(1, -1);*/
+    /*transform: scale(1, -1);*/
   }
 }
 
@@ -4585,8 +4585,8 @@ div.wave-block:nth-child(17):after {
   opacity: 1;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
+  /*-webkit-transform: translate(0, 0);*/
+  /*transform: translate(0, 0);*/
 }
 
 @media (max-width: 575px) {

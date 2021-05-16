@@ -1,4 +1,6 @@
 const timeoutedDisplayBlock = () => {
+
+  //решается проблема появления летающих и исчезающих блоков при загрузке страницы
   const menu = document.querySelector('.popup-dialog-menu'),
     privacyPopup = document.querySelector('.popup-dialog-privacy'),
     repairPopup = document.querySelector('.popup-repair-types');
