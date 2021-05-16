@@ -1,8 +1,5 @@
-import addSmoothScroll from "./addSmoothScroll";
-
 const accordion = () => {
-  const accordionsBlock = document.querySelector('.accordion'),
-    buttons = document.querySelectorAll('.accordion .title_block'),
+  const buttons = document.querySelectorAll('.accordion .title_block'),
     panels = document.querySelectorAll('.msg');
 
 
