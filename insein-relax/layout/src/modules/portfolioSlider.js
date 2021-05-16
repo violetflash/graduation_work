@@ -1,4 +1,6 @@
 import Carousel from './carousel';
+import { setDataIndexes, showPopup, updateSliderCounter } from './utils';
+
 
 const portfolioSlider = () => {
   const portfolioSection = document.getElementById('portfolio'),
@@ -23,49 +25,21 @@ const portfolioSlider = () => {
     fullwidth = 0,
     currentPopupSlide = 0;
 
-  const showPopup = (popup) => {
-    popup.style.visibility = 'visible';
-    popup.style.transform = 'translateY(0)';
-    popup.style.opacity = 1;
-    // document.body.style.overflow = 'hidden';
-  };
-
-  const hidePopup = (popup) => {
-    popup.style.visibility = 'hidden';
-    popup.style.transform = 'translateY(10px)';
-    popup.style.opacity = 0;
-    // document.body.style.overflow = 'visible';
-  };
-
   const showPopupsText = (idx) => {
     popupTexts.forEach((element, index) => {
       element.style.display = 'none';
       if (idx === +element.dataset.index) {
-        console.log(element);
+        // console.log(element);
         element.style.display = 'flex';
       }
     });
   };
 
-  const updateSliderCounter = (id, current, total) => {
-    const sliderCounterCurrent = document.querySelector(`#${id} .slider-counter-content__current`),
-      sliderCounterTotal = document.querySelector(`#${id} .slider-counter-content__total`);
-    sliderCounterCurrent.textContent = current;
-    sliderCounterTotal.textContent = total;
-  };
-
-
-
-  [images, images570p, popupTexts].forEach((element) => {
-    element.forEach((item, index) => {
-      item.setAttribute('data-index', `${index}`);
-    });
-  });
-
+  setDataIndexes([images, images570p, popupTexts]);
 
   step = slideWidth;
   fullwidth = slidesNum * slideWidth;
-  console.log('movedDistance:', movedDistance);
+  // console.log('movedDistance:', movedDistance);
 
 
   //слайдер десктоп-таблет
@@ -74,17 +48,17 @@ const portfolioSlider = () => {
 
     if (target.closest('#portfolio-arrow_right')) {
       fullwidth = slidesNum * slideWidth;
-      console.log('step:', step);
+      // console.log('step:', step);
 
 
       if (movedDistance< fullwidth) {
         amount = step * counter;
-        console.log('amount', amount);
+        // console.log('amount', amount);
 
         imagesBlock.style.transform = `translateX(-${amount}px)`;
         counter++;
         movedDistance += step + 5;  //5 - погрешность от округления
-        console.log(movedDistance, 'of', fullwidth);
+        // console.log(movedDistance, 'of', fullwidth);
 
         if (movedDistance >= fullwidth) {
           movedDistance = imagesBlockWidth;
@@ -97,8 +71,8 @@ const portfolioSlider = () => {
 
     if (target.closest('#portfolio-arrow_left')) {
       fullwidth = slidesNum * slideWidth;
-      console.log('slideWidth:', slideWidth);
-      console.log('fullwidth', fullwidth);
+      // console.log('slideWidth:', slideWidth);
+      // console.log('fullwidth', fullwidth);
 
 
       if (amount > 0) {
@@ -164,9 +138,9 @@ const portfolioSlider = () => {
     //слайдер в попап
     if (target.classList.contains('portfolio-slider__slide-frame')) {
       showPopup(portfolioPopup);
-      //У этого АДАПТИВНОГО ГОВНА НЕТ ИНДЕКСА. ПОСТАВИТЬ ВСЕМ ИНДЕКСЫ!
+
       currentPopupSlide = +target.dataset.index;
-      console.log('currentPopupSlide', currentPopupSlide);
+      // console.log('currentPopupSlide', currentPopupSlide);
       showPopupsText(currentPopupSlide);
       updateSliderCounter('popup-portfolio-counter', currentPopupSlide + 1, popupTexts.length);
 
@@ -178,20 +152,6 @@ const portfolioSlider = () => {
         prev: '#popup_portfolio_left',
         position: currentPopupSlide,
         slidesToShow: 1,
-        // responsive: [
-        //   {
-        //     breakpoint: 1024,
-        //     slidesToShow: 3
-        //   },
-        //   {
-        //     breakpoint: 769,
-        //     slidesToShow: 2
-        //   },
-        //   {
-        //     breakpoint: 576,
-        //     slidesToShow: 1
-        //   }
-        // ],
       });
       popupCarousel.init();
     }

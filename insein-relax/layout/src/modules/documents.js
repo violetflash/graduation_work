@@ -1,5 +1,6 @@
 
 const documents = () => {
+  const section = document.getElementById('transparency');
 
 };
 

@@ -1,26 +1,21 @@
-//их несколько
+import Carousel from "./carousel";
+import {updateSliderCounter, setDataIndexes, showPopup, hidePopup, getDatasetIndex} from './utils';
+
 const togglePopups = () => {
   const repairPopup = document.querySelector('.popup-repair-types'),
     privacyPopup = document.querySelector('.popup-privacy'),
     privacyBlock = document.querySelector('.popup-dialog-privacy'),
-    portfolioPopup = document.querySelector('.popup-portfolio');
+    portfolioPopup = document.querySelector('.popup-portfolio'),
+    transparencyPopup = document.querySelector('.popup-transparency'),
+    transparencyItems = document.querySelectorAll('.transparency-item'),
+    length = transparencyItems.length;
 
-  const showPopup = (popup) => {
-    popup.style.visibility = 'visible';
-    popup.style.transform = 'translateY(0)';
-    popup.style.opacity = 1;
-    // document.body.style.overflow = 'hidden';
-  };
+  let currentSlide = 0;
 
-  const hidePopup = (popup) => {
-    popup.style.visibility = 'hidden';
-    popup.style.transform = 'translateY(10px)';
-    popup.style.opacity = 0;
-    // document.body.style.overflow = 'visible';
-  };
+  setDataIndexes([transparencyItems]);
 
   document.addEventListener('click', (e) => {
-    const target = e.target;
+    let target = e.target;
 
     if (target.closest('.link-list-menu') || target.closest('.link-list-repair')) {
       showPopup(repairPopup);
@@ -46,6 +41,49 @@ const togglePopups = () => {
 
     if (target.classList.contains('close') && target.closest('.popup-portfolio')) {
       hidePopup(portfolioPopup);
+      return;
+    }
+
+    if (target.classList.contains('transparency-item__img')) {
+
+      target = target.closest('.transparency-item');
+      showPopup(transparencyPopup);
+      currentSlide = getDatasetIndex(target);
+      updateSliderCounter('transparency-popup-counter', currentSlide + 1, length);
+
+      const transparencySlider = new Carousel({
+        className: 'transparency',
+        main: '.popup-transparency-slider',
+        wrapper: '.transparency-box',
+        next: '#transparency_right',
+        prev: '#transparency_left',
+        slidesToShow: 1,
+        position: currentSlide,
+      });
+
+      transparencySlider.init();
+
+    }
+
+    if (target.closest('#transparency_right')) {
+
+      if (currentSlide + 1 !== length) {
+        currentSlide++;
+        updateSliderCounter('transparency-popup-counter', currentSlide + 1, length);
+      }
+    }
+
+    if (target.closest('#transparency_left')) {
+
+      if (currentSlide !== 0) {
+        currentSlide--;
+        updateSliderCounter('transparency-popup-counter', currentSlide + 1, length);
+      }
+    }
+
+
+    if (target.classList.contains('close') && target.closest('.popup-transparency')) {
+      hidePopup(transparencyPopup);
       return;
     }
 
