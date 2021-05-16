@@ -71,7 +71,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar documents = function documents() {\n  var section = document.getElementById('transparency');\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (documents);\n\n//# sourceURL=webpack://3dglo/./src/modules/documents.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./carousel */ \"./src/modules/carousel.js\");\n\n\nvar documents = function documents() {\n  var sectionTransp = document.getElementById('transparency'),\n      leftArrow = document.getElementById('transparency-arrow_left'),\n      rightArrow = document.getElementById('transparency-arrow_right'),\n      length = document.querySelectorAll('.transparency-slider .transparency-item').length;\n  var activeSlide = 0;\n\n  if (document.documentElement.clientWidth > 1089) {\n    return;\n  }\n\n  leftArrow.style.display = 'none';\n  var transSlider = new _carousel__WEBPACK_IMPORTED_MODULE_0__.default({\n    className: 'transparency-block',\n    main: '.transparency-slider-wrap',\n    wrapper: '.transparency-slider',\n    next: '#transparency-arrow_right',\n    prev: '#transparency-arrow_left',\n    slidesToShow: 1\n  });\n  transSlider.init();\n  sectionTransp.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.closest('#transparency-arrow_right')) {\n      if (activeSlide + 1 !== length) {\n        activeSlide++;\n        console.log(activeSlide + 1, 'of', length);\n        leftArrow.style.display = 'flex';\n\n        if (activeSlide + 1 === length) {\n          rightArrow.style.display = 'none';\n        }\n      }\n    }\n\n    if (target.closest('#transparency-arrow_left')) {\n      if (activeSlide !== 0) {\n        activeSlide--;\n        console.log(activeSlide, 'of', length);\n        rightArrow.style.display = 'flex';\n\n        if (activeSlide === 0) {\n          leftArrow.style.display = 'none';\n        }\n      }\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (documents);\n\n//# sourceURL=webpack://3dglo/./src/modules/documents.js?");
 
 /***/ }),
 
@@ -616,7 +616,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("239097cb9a65e13373a2")
+/******/ 		__webpack_require__.h = () => ("3d1e7f824bfec831354c")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

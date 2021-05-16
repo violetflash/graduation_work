@@ -2506,7 +2506,7 @@ div.wave-block:nth-child(17):after {
   align-items: flex-start;
 }
 
-@media (max-width: 1090px) {
+@media (max-width: 1089px) {
   .transparency-slider.row {
     display: block;
   }
@@ -8480,7 +8480,7 @@ div.wave-block:nth-child(17):after {
   }
 }
 
-@media (min-width: 1091px) {
+@media (min-width: 1089px) {
   #transparency-arrow_left, #transparency-arrow_right {
     display: none;
   }
@@ -8706,6 +8706,12 @@ strong {
   justify-content: space-between;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+}
+
+@media (max-width: 1089px) {
+  .row {
+    flex-wrap: nowrap;
+  }
 }
 
 .row_reverse {
