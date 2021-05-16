@@ -44,7 +44,6 @@ const sendForms = () => {
       });
 
       body = JSON.stringify(body);
-
       postData(body)
         .then((response) => {
 
@@ -52,7 +51,7 @@ const sendForms = () => {
             throw new Error('Нет ответа от сервера');
           }
           showPopup(successPopup);
-          clearForm(form);
+          form.reset();
         })
         .catch((error) => {
           console.error(error);
@@ -63,23 +62,11 @@ const sendForms = () => {
   const postData = (body) => {
     return fetch('./server.php', {
       method: 'POST',
-      credentials: 'same-origin',
       body: JSON.stringify(body),
       headers: {
         'Content-type': 'application/json'
       },
     });
-  };
-
-  const clearForm = (form) => {
-    const inputs = form.querySelectorAll('input');
-    inputs.forEach((element) => {
-      if (element.type.toLowerCase() === 'button') {
-        return;
-      }
-      element.value = '';
-    });
-
   };
 };
 
