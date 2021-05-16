@@ -57,6 +57,31 @@ const removeElementsClass = (nodeList, className) => {
   nodeList.forEach(element => element.classList.remove(className));
 };
 
+
+const filteredData = (source, key, value) => {
+  return source.filter(element => {
+    if (element[key] === value) {
+      return element;
+    }
+  });
+};
+
+const clearTable = (elem) => {
+  elem.innerHTML = '<tbody></tbody>';
+};
+
+const fillTable = (table, name, units, cost) => {
+  table.querySelector('tbody').innerHTML += `
+    <tr class="mobile-row">
+      <td class="repair-types-name">${name}</td>
+      <td class="mobile-col-title tablet-hide desktop-hide">Ед.измерения</td>
+      <td class="mobile-col-title tablet-hide desktop-hide">Цена за ед.</td>
+      <td class="repair-types-value">${units}</td>
+      <td class="repair-types-value">${cost} руб.</td>
+    </tr>
+  `;
+};
+
 export {
   updateSliderCounter,
   setDataIndexes,
@@ -66,4 +91,7 @@ export {
   moveLeftCheckArrow,
   moveRightCheckArrow,
   removeElementsClass,
+  filteredData,
+  clearTable,
+  fillTable,
 };

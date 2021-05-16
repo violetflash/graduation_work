@@ -4,6 +4,7 @@ import timeoutedDisplayBlock from './modules/timeoutedDisplayBlock';
 import removeRequiredAttr from './modules/removeRequiredAttr';
 import toggleMenu from './modules/toggleMenu';
 import togglePhone from './modules/togglePhone';
+import fillRepairsSlider from './modules/fillRepairsSlider';
 import addSmoothScroll from './modules/addSmoothScroll';
 import popupRepairsSlider from './modules/popupRepairsSlider';
 import togglePopups from './modules/togglePopups';
@@ -15,11 +16,11 @@ import portfolioSlider from './modules/portfolioSlider';
 import documents from './modules/documents';
 import testimonials from './modules/testimonials';
 import accordion from './modules/accordion';
-import faq from './modules/faq';
 
 
 removeRequiredAttr();
 timeoutedDisplayBlock();
+fillRepairsSlider();
 togglePhone();
 toggleMenu();
 addSmoothScroll();
@@ -33,5 +34,4 @@ portfolioSlider();
 documents();
 testimonials();
 accordion();
-faq();
 
