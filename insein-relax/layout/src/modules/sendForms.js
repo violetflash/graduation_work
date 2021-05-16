@@ -1,6 +1,8 @@
+import {showPopup} from "./utils";
 
 const sendForms = () => {
-  const forms = document.querySelectorAll('form');
+  const forms = document.querySelectorAll('form'),
+    successPopup = document.querySelector('.popup-thank');
 
   const checkFormFill = (form) => {
     const inputs = form.querySelectorAll('input');
@@ -49,7 +51,7 @@ const sendForms = () => {
           if (response.status !== 200) {
             throw new Error('Нет ответа от сервера');
           }
-
+          showPopup(successPopup);
           clearForm(form);
         })
         .catch((error) => {

@@ -9,7 +9,9 @@ const togglePopups = () => {
     transparencyPopup = document.querySelector('.popup-transparency'),
     transparencyItems = document.querySelectorAll('.transparency-item'),
     transparencyslength = transparencyItems.length,
-    popupConsultation = document.querySelector('.popup-consultation');
+    popupConsultation = document.querySelector('.popup-consultation'),
+    successPopup = document.querySelector('.popup-thank');
+
 
 
   let currentSlide = 0;
@@ -94,6 +96,13 @@ const togglePopups = () => {
     }
 
     if (target.classList.contains('close') && target.closest('.popup-consultation')) {
+      hidePopup(popupConsultation);
+      return;
+    }
+
+
+    if (target.classList.contains('close') && target.closest('.popup-thank')) {
+      hidePopup(successPopup);
       hidePopup(popupConsultation);
       return;
     }
