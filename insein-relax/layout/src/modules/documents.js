@@ -1,4 +1,6 @@
 import Carousel from "./carousel";
+import {moveLeftCheckArrow, moveRightCheckArrow} from "./utils";
+
 
 const documents = () => {
   const sectionTransp = document.getElementById('transparency'),
@@ -29,22 +31,20 @@ const documents = () => {
     const target = e.target;
 
     if (target.closest('#transparency-arrow_right')) {
+      // moveRightCheckArrow(activeSlide, leftArrow, rightArrow, length); //TODO выяснить почему не выполняются
       if (activeSlide + 1 !== length) {
         activeSlide++;
-        console.log(activeSlide + 1, 'of', length);
-
         leftArrow.style.display = 'flex';
         if (activeSlide + 1 === length) {
           rightArrow.style.display = 'none';
-
         }
       }
     }
 
     if (target.closest('#transparency-arrow_left')) {
+      // moveLeftCheckArrow(activeSlide, leftArrow, rightArrow);
       if (activeSlide !== 0) {
         activeSlide--;
-        console.log(activeSlide, 'of', length);
         rightArrow.style.display = 'flex';
         if (activeSlide === 0) {
           leftArrow.style.display = 'none';

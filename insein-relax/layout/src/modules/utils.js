@@ -31,4 +31,29 @@ const getDatasetIndex = (target) => {
   return +target.dataset.index;
 };
 
-export { updateSliderCounter, setDataIndexes, getDatasetIndex, showPopup, hidePopup };
+const moveRightCheckArrow = (activeSlide, leftArrow, rightArrow, length) => {
+  if (activeSlide + 1 !== length) {
+    activeSlide++; //TODO не выполняет
+    console.log(activeSlide, 'of', length);
+    leftArrow.style.display = 'flex';
+    if (activeSlide + 1 === length) {
+      rightArrow.style.display = 'none';
+    }
+  }
+};
+
+const moveLeftCheckArrow = (activeSlide, leftArrow, rightArrow) => {
+  if (activeSlide !== 0) {
+    activeSlide--;
+    rightArrow.style.display = 'flex';
+    if (activeSlide === 0) {
+      leftArrow.style.display = 'none';
+    }
+  }
+};
+
+
+
+
+
+export { updateSliderCounter, setDataIndexes, getDatasetIndex, showPopup, hidePopup, moveLeftCheckArrow, moveRightCheckArrow };
