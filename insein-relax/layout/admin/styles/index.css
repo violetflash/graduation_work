@@ -549,7 +549,8 @@ body {
 
 /*   Модальное окно   */
 
-#modal {
+#modal,
+#modal-change {
   display: none;
 }
 
