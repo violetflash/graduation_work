@@ -6,66 +6,95 @@ const auth = () => {
     login = document.getElementById('name'),
     password = document.getElementById('type'),
     onEmpty = 'Поле не должно быть пустым',
-    incorrectName = 'Не верное имя',
-    incorrectPassword = 'Не верный пароль';
-
+    incorrectName = 'Нет такого пользователя',
+    incorrectPassword = 'Неверный пароль',
+    activeClass = 'js-active';
 
   const hideError = (target, className) => {
     target.nextElementSibling.classList.remove(className);
   };
 
-  const setError = (target, text) => {
+  const setError = (target, text, className) => {
     target.nextElementSibling.textContent = text;
+    target.nextElementSibling.classList.add(className);
   };
 
-  const fetchData = (db) => {
-    return fetch(db);
+  const fetchData = db => fetch(db);
+
+  const setCookie = (name, value, options = {}) => {
+
+    options = {
+      path: '/',
+      // при необходимости добавьте другие значения по умолчанию
+      ...options
+    };
+
+    if (options.expires instanceof Date) {
+      options.expires = options.expires.toUTCString();
+    }
+
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (let optionKey in options) {
+      updatedCookie += "; " + optionKey;
+      let optionValue = options[optionKey];
+      if (optionValue !== true) {
+        updatedCookie += "=" + optionValue;
+      }
+    }
+
+    document.cookie = updatedCookie;
   };
 
-  document.addEventListener('click', (e) => {
+
+
+  document.addEventListener('click', e => {
     const target = e.target;
 
     if (target.id === 'type' || target.id === 'name') {
-      hideError(target, 'js-active');
+      hideError(target, activeClass);
     }
 
   });
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', e => {
     e.preventDefault();
 
     fetchData(db)
-      .then((response) => {
+      .then(response => {
         response.json()
-          .then((data) => {
-            console.log(data)
-            data.forEach(user => {
-              console.log(user.login)
-              if (user.login === login.value && user.password === password.value) {
-                window.location.replace("http://localhost:8080/table.html");
-                return;
-              }
-              if (user.login !== login.value) {
-                setError(login, incorrectName);
-                return;
-              }
+          .then(data => {
+            console.log('users:', data);
 
-              if (user.login === login.value && user.password !== password.value) {
-                setError(password, incorrectPassword);
-                return;
-              }
-            });
+            let loggedUser = data.find(elem => elem.login === login.value);
+
+            if (!loggedUser) {
+              setError(login, incorrectName, activeClass);
+              // form.reset();
+              return;
+            }
+
+            if (loggedUser && password.value !== loggedUser.password) {
+              setError(password, incorrectPassword, activeClass);
+              // form.reset();
+              return;
+            }
+
+            if (loggedUser && password.value === loggedUser.password) {
+              setCookie('loggedUser', loggedUser.login);
+              window.location.replace("http://localhost:8080/table.html");
+            }
+
+            loggedUser = null;
           })
-          .catch((err) => {
+          .catch(err => {
             console.log(err);
           });
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
 
-
-    // warnings.forEach(elem => elem.classList.add('js-active'));
 
     // form.reset();
   });
