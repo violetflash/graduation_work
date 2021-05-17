@@ -83,8 +83,9 @@ const togglePopups = () => {
     }
 
 
-    if (target.classList.contains('close') && target.closest('.popup-transparency') ||
-      !document.querySelector('.popup-dialog-transparency').contains(target)) {   //TODO ТУТ ЗАГВОЗДКА
+    if (target.classList.contains('close') && target.closest('.popup-transparency') || !target.closest('.popup-dialog-transparency') && target.classList.contains('transparency-item__img')) {
+      //TODO ТУТ ЗАГВОЗДКА
+      console.log('тык')
       hidePopup(transparencyPopup);
     }
 
