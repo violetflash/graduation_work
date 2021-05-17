@@ -4,7 +4,8 @@ import { setDataIndexes, removeElementsClass } from './utils';
 const popupRepairsSlider = () => {
   const list = document.querySelectorAll('.popup-repair-types-content-table__list'),
     buttons = document.querySelectorAll('.popup-repair-types-nav__item'),
-    popupRepairsSection = document.querySelector('.popup-repair-types');
+    popupRepairsSection = document.querySelector('.popup-repair-types'),
+    titleSwitch = document.getElementById('switch-inner');
 
   const repairsPopupSlider = new Carousel({
     className: 'repPop',
@@ -27,6 +28,7 @@ const popupRepairsSlider = () => {
       const target = e.target;
 
       if (target.classList.contains('popup-repair-types-nav__item')) {
+        titleSwitch.textContent = target.textContent;
         removeElementsClass(buttons, 'js-active');
         target.classList.add('js-active');
       }
