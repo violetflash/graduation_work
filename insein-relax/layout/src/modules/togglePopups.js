@@ -26,26 +26,23 @@ const togglePopups = () => {
       return;
     }
 
-    if (target.classList.contains('close') && target.closest('.popup-repair-types')) {
+    if (target.classList.contains('close') && target.closest('.popup-repair-types') || !target.closest('.popup-dialog-repair-types')) {
       hidePopup(repairPopup);
-      return;
     }
 
-    if (target.classList.contains('link-privacy')) {
+    if (target.closest('.link-privacy')) {
       privacyPopup.style.visibility = 'visible';
       showPopup(privacyBlock);
       return;
     }
 
-    if (target.classList.contains('close') && target.closest('.popup-privacy')) {
+    if (target.classList.contains('close') && target.closest('.popup-privacy') || !target.closest('.popup-dialog-privacy')) {
       privacyPopup.style.visibility = 'hidden';
       hidePopup(privacyBlock);
-      return;
     }
 
-    if (target.classList.contains('close') && target.closest('.popup-portfolio')) {
+    if (target.classList.contains('close') && target.closest('.popup-portfolio') || !target.closest('.popup-dialog-portfolio')) {
       hidePopup(portfolioPopup);
-      return;
     }
 
     if (target.classList.contains('transparency-item__img')) {
@@ -86,10 +83,11 @@ const togglePopups = () => {
     }
 
 
-    if (target.classList.contains('close') && target.closest('.popup-transparency')) {
+    if (target.classList.contains('close') && target.closest('.popup-transparency') ||
+      !document.querySelector('.popup-dialog-transparency').contains(target)) {   //TODO ТУТ ЗАГВОЗДКА
       hidePopup(transparencyPopup);
-      return;
     }
+
 
     if (target.closest('.button_wide')) {
       showPopup(popupConsultation);
@@ -97,7 +95,6 @@ const togglePopups = () => {
 
     if (target.classList.contains('close') && target.closest('.popup-consultation')) {
       hidePopup(popupConsultation);
-      return;
     }
 
 

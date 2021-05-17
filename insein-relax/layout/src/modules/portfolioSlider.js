@@ -132,7 +132,7 @@ const portfolioSlider = () => {
 
 
 
-  portfolioSection.addEventListener('click', (e) => {
+  document.addEventListener('click', (e) => {
     const target = e.target;
 
     //слайдер в попап
