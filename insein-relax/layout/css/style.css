@@ -1829,8 +1829,8 @@ template, [hidden] {
 
   .repair-types-nav__item:nth-child(5) svg {
     width: 230px;
-    margin-left: 30px;
-    left: -30px;
+    /*margin-left: 30px;*/
+    /*left: 30px;*/
   }
 }
 
@@ -1846,7 +1846,7 @@ template, [hidden] {
 
   .repair-types-nav__item:nth-child(5) svg {
     width: 223px;
-    left: -15px;
+    left: 15px;
   }
 }
 
