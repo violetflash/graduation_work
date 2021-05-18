@@ -19,7 +19,7 @@ const toggleMenu = () => {
 
   document.addEventListener('click', (e) => {
     let target = e.target;
-    if (target.closest('.menu')) {
+    if (target.closest('.menu') && !target.closest('.menu-phone-icon')) {
       openMenu();
       return;
     }

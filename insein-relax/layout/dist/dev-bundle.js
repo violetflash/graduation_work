@@ -192,7 +192,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar toggleMenu = function toggleMenu() {\n  var menuWrapper = document.querySelector('.popup-menu'),\n      menu = menuWrapper.querySelector('.popup-dialog-menu'); //TODO избавиться от скачка при появлении скроллбара\n\n  var openMenu = function openMenu() {\n    menuWrapper.style.visibility = 'visible';\n    menu.classList.add('js-opened-burger');\n    document.body.classList.add('js-locked');\n  };\n\n  var closeMenu = function closeMenu() {\n    menuWrapper.style.visibility = 'hidden';\n    menu.classList.remove('js-opened-burger');\n    document.body.classList.remove('js-locked');\n  };\n\n  document.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.closest('.menu')) {\n      openMenu();\n      return;\n    } //исключаем само меню и <a> внутри него\n\n\n    if (target.closest('.close-menu') || target.closest('.popup-menu-main a')) {\n      closeMenu();\n      return;\n    }\n\n    target = target.closest('.popup-dialog-menu'); // если клик не по меню\n\n    if (!target) {\n      closeMenu();\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleMenu);\n\n//# sourceURL=webpack://3dglo/./src/modules/toggleMenu.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar toggleMenu = function toggleMenu() {\n  var menuWrapper = document.querySelector('.popup-menu'),\n      menu = menuWrapper.querySelector('.popup-dialog-menu'); //TODO избавиться от скачка при появлении скроллбара\n\n  var openMenu = function openMenu() {\n    menuWrapper.style.visibility = 'visible';\n    menu.classList.add('js-opened-burger');\n    document.body.classList.add('js-locked');\n  };\n\n  var closeMenu = function closeMenu() {\n    menuWrapper.style.visibility = 'hidden';\n    menu.classList.remove('js-opened-burger');\n    document.body.classList.remove('js-locked');\n  };\n\n  document.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.closest('.menu') && !target.closest('.menu-phone-icon')) {\n      openMenu();\n      return;\n    } //исключаем само меню и <a> внутри него\n\n\n    if (target.closest('.close-menu') || target.closest('.popup-menu-main a')) {\n      closeMenu();\n      return;\n    }\n\n    target = target.closest('.popup-dialog-menu'); // если клик не по меню\n\n    if (!target) {\n      closeMenu();\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleMenu);\n\n//# sourceURL=webpack://3dglo/./src/modules/toggleMenu.js?");
 
 /***/ }),
 
@@ -638,7 +638,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("6180b5b78726f642d98e")
+/******/ 		__webpack_require__.h = () => ("2f987a5d627550dc2bd3")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
