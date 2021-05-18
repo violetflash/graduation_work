@@ -82,7 +82,7 @@ const auth = () => {
 
             if (loggedUser && password.value === loggedUser.password) {
               setCookie('loggedUser', loggedUser.login);
-              window.location.replace("http://localhost:8080/table.html");
+              window.location.replace("./table.html");
             }
 
             loggedUser = null;
