@@ -8041,6 +8041,23 @@ div.wave-block:nth-child(17):after {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  transition: all 0.3s ease 0s;
+}
+
+.checkbox.js-active {
+  animation: one 0.4s;
+}
+
+@keyframes one {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .checkbox-feedback-block {
@@ -9245,4 +9262,33 @@ strong {
 /*==== js styles ====*/
 .js-locked {
   overflow: hidden;
+}
+
+.text-warning {
+  font-size: 14px;
+  display: block;
+  color: tomato;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  padding-bottom: 5px;
+}
+
+.text-warning.js-active {
+  color: tomato;
+  opacity: 1;
+  visibility: visible;
+  animation: one 0.4s;
+}
+
+@keyframes one {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
