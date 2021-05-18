@@ -1,8 +1,10 @@
-import {showPopup} from "./utils";
+import { hidePopup, showPopup } from "./utils";
 
 const sendForms = () => {
   const forms = document.querySelectorAll('form'),
     successPopup = document.querySelector('.popup-thank');
+
+  // let timeoutId;
 
   const checkFormFill = (form) => {
     const inputs = form.querySelectorAll('input');
@@ -51,6 +53,9 @@ const sendForms = () => {
             throw new Error('Нет ответа от сервера');
           }
           showPopup(successPopup);
+          setTimeout(() => {
+            hidePopup(successPopup);
+          }, 5000);
           form.reset();
         })
         .catch((error) => {

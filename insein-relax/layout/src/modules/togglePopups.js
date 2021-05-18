@@ -46,8 +46,8 @@ const togglePopups = () => {
     }
 
     if (target.classList.contains('transparency-item__img')) {
-
       target = target.closest('.transparency-item');
+      transparencyPopup.style.display = 'flex';
       showPopup(transparencyPopup);
       currentSlide = getDatasetIndex(target);
       updateSliderCounter('transparency-popup-counter', currentSlide + 1, transparencyslength);
@@ -63,7 +63,7 @@ const togglePopups = () => {
       });
 
       transparencySlider.init();
-
+      return;
     }
 
     if (target.closest('#transparency_right')) {
@@ -72,6 +72,7 @@ const togglePopups = () => {
         currentSlide++;
         updateSliderCounter('transparency-popup-counter', currentSlide + 1, transparencyslength);
       }
+      return;
     }
 
     if (target.closest('#transparency_left')) {
@@ -80,22 +81,24 @@ const togglePopups = () => {
         currentSlide--;
         updateSliderCounter('transparency-popup-counter', currentSlide + 1, transparencyslength);
       }
+      return;
     }
 
 
-    if (target.classList.contains('close') && target.closest('.popup-transparency') || !target.closest('.popup-dialog-transparency') && target.classList.contains('transparency-item__img')) {
-      //TODO ТУТ ЗАГВОЗДКА
-      console.log('тык')
+    if (target.classList.contains('close') && target.closest('.popup-transparency') || !target.closest('.popup-dialog-transparency')) {
+      transparencyPopup.style.display = 'none';
       hidePopup(transparencyPopup);
     }
 
 
     if (target.closest('.button_wide')) {
       showPopup(popupConsultation);
+      return;
     }
 
-    if (target.classList.contains('close') && target.closest('.popup-consultation')) {
+    if (target.classList.contains('close') && target.closest('.popup-consultation') || !target.closest('.feedback-wrap')) {
       hidePopup(popupConsultation);
+
     }
 
 

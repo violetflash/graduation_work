@@ -6592,6 +6592,10 @@ div.wave-block:nth-child(17):after {
   font-size: 14px;
 }
 
+.popup-transparency {
+  display: none;
+}
+
 .popup-transparency-slider {
   position: relative;
   width: 432px;
