@@ -104,7 +104,7 @@ class ServicesList {
   }
 
   redirect() {
-    window.location.replace("http://localhost:8080/index.html");
+    window.location.replace("./index.html");
   }
 
   hideError(target) {
